@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+body{
+     margin: 0;
+     font-family: 'Rubik',sans-serif;
+     background: #111;
+}
+*{
+     box-sizing: border-box;
+}
+h1,h3{
+     font-weight: 400;
+}
+
+
+.weather-app{
+     min-height: 100vh;  
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     color: #fff;
+     position: relative;
+     transition: 500ms;
+     opacity: 1;
+}
+.weather-app::before{
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0,0,0,0.3);
+     z-index: 0;
+}
+a{
+     text-decoration: none;
+     color: #ccc;
+}
+.container{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     flex-direction: column;
+}
+.weatherData{
+     width: 500px;
+     height: 350px;
+    margin: auto 20%;
+}
+.temp-cloudBox,
+.time-date,
+.city-country{
+     width: 90%;
+     height: 110px;
+     display: flex;
+     align-items: baseline;
+     margin: auto;
+}
+.temp-cloudBox small{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 40px;
+}
+.temp-cloudBox small img{
+     width: 50px;
+     height: 50px;
+     margin-left: -50px;
+}
+.temp-cloudBox h1{
+     font-size: 7em;
+     margin: 0;
+     margin-right: 50px;
+     text-align: center;
+
+}    
+.city-country h2{
+     font-size: 3.5em;
+     letter-spacing: 1px;
+     font-weight: 100;
+     margin-right: 20px;
+}
+.time-date small{
+     display: flex;
+     justify-content: space-between;
+     width: 60%;
+     font-size: 1.2em;
+}
+
+
+
+.panel{
+     position: absolute;
+     width: 40%;
+     height: 100%;
+     top: 0;
+     right: 0;
+     background: rgba(110,110,110,0.25);
+     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border: 1px solid rgba(255,255,255,0.18);
+     z-index: 1;
+     padding: 3em 2em;
+     overflow-y: scroll;
+}
+.panel form{
+     margin-bottom: 3em;
+}
+.submit{
+     position: absolute;
+     top: 0;
+     right: 0;
+     padding: 1.5em;
+     margin: 0;
+     border: none;
+     outline: none;
+     background: #fa6d1b;
+     color: #fff;
+     cursor: pointer;
+     font-size: 1.2em;
+     transition: 0.4s;
+}
+.submit:hover{
+     background: #fff !important;
+     color: #000;
+}
+.search{
+     background: none;
+     border: none;
+     border-bottom:  1px #ccc solid;
+     padding: 0 1em 0.5em 0;
+     width: 80%;
+     color: #fff;
+     font-size: 1.1em;
+}
+.search:focus{
+     outline: none;
+     background:none;
+     border-bottom:  1px #ccc solid;
+     color: #fff;
+}
+.search::placeholder{
+     color: #ccc;
+}
+.search:-webkit-autofill,
+.search:-webkit-autofill:hover,
+.search:-webkit-autofill:focus,
+.search:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff;
+    font-family: 'Rubik',sans-serif;
+    caret-color: #ccc;
+}
+.panel ul{
+     padding: 0 0 1em 0;
+     margin: 2em 0;
+     border-bottom: 1px #ccc solid;
+}
+.panel ul li{
+     color: #ccc;
+     margin: 2.5em 0;
+}
+.panel ul h4{
+     margin: 3.5em 0;
+}
+.city{
+     display: block;
+     cursor: pointer;
+}
+.city:hover{
+     color: #fff;
+}
+.details li{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+
+/* ========================= RWD =========================== */
+
+@media screen and (max-width: 968px){
+     .panel,.container{
+          position: relative;
+          width: 100%;
+     }
+     .weatherData{
+          margin: auto;
+     }
+}
+@media screen and (max-width:575px){
+     html{
+          font-size: 13px;
+     } 
+     .weatherData{
+          width: 100%;
+          margin-top: 50px;
+     }
+     .temp-cloudBox,
+     .time-date,
+     .city-country{
+          justify-content: center;
+     }
+     .temp-cloudBox small{
+          position: absolute;
+          margin-top: 100px;
+          margin-left: 50px;
+          font-size: 1.1em;
+     }
+     .temp-cloudBox h1{
+          display: block;
+          margin: auto;
+     }
+     .panel{
+          margin-top: -100px;
+     }
+    
+}
+
+@media screen and (max-width:300px){
+     .weather-app{
+          min-height: 40em;
+     }
+}
